@@ -1,0 +1,354 @@
+/*
+   HOME SECTION - BASE (Mobile)
+   Image on TOP, Content below
+*/
+.home.active-content {
+    display: flex;
+    flex-direction: column-reverse; /* IMAGE appears on TOP on mobile */
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    max-width: 700px;
+    margin: 2rem auto;
+}
+
+.home-content {
+    width: 100%;
+    text-align: center;
+}
+
+/* 
+   IMAGE CONTAINER
+    */
+.image-container {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+/* Spinning border effect */
+
+.image-container::before,
+.image-container::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: conic-gradient(
+        transparent,
+        transparent,
+        transparent,
+        var(--green-color)
+    );
+    animation: revolve 4s linear infinite;
+}
+
+.image-container::after {
+    animation-delay: 2s;
+}
+
+@keyframes revolve {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+.image-container img {
+    width: calc(100% - 25px);
+    height: calc(100% - 25px);
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 30%;
+    z-index: 2;
+    filter: brightness(1.05) contrast(1.1);
+}
+
+/*
+   TYPOGRAPHY
+ */
+.home-content h2 {
+    font-size: 2.5rem;
+}
+
+.home-content h2 span {
+    background: linear-gradient(to right, var(--green-color), var(--white-color));
+    padding-bottom: 2px;
+    border-bottom: 5px solid var(--green-color);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.home-content h3 {
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.home-content h3 span {
+    color: var(--green-color);
+    display: inline-block;
+    width: 27ch;
+    min-width: 27ch;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#home.content.active-content h3 span::after {
+    content: "|";
+    margin: 5px;
+    animation: blink 0.7s steps(1) infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+}
+
+.home-content p {
+    font-size: 1.1rem;
+    text-align: justify;
+    text-justify: inter-word;
+    line-height: 1.42;
+    margin: 0.35rem 0 0.55rem;
+    max-width: 54ch;
+    hyphens: none;
+    word-break: normal;
+    overflow-wrap: normal;
+}
+
+/* BUTTON & SOCIAL */
+.bottom {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 0.5rem;
+}
+
+.bottom .btn {
+    width: fit-content;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background-color: var(--green-color);
+    color: var(--white-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.bottom .btn:hover {
+    box-shadow: 3px 3px 3px 3px var(--green-color),
+                -3px -3px 3px 3px var(--green-color),
+                3px -3px 3px 3px var(--green-color),
+                -3px 3px 3px 3px var(--green-color);
+    background: transparent;
+    outline: 2px solid var(--green-color); /* border ki jagah outline — size affect nahi karta */
+    color: var(--white-color);
+}
+
+.social-icons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 2rem;
+}
+
+.social-icons a {
+    color: var(--white-color);
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--green-color);
+    scale: 105%;
+}
+
+@media screen and (max-width: 480px) {
+    .home-content h2 {
+        font-size: 2rem;
+    }
+
+    .home-content h3 {
+        font-size: 1.3rem;
+        gap: 6px;
+        white-space: normal;
+        overflow: visible;
+        flex-wrap: wrap;
+    }
+
+    .home-content h3 span {
+        width: auto;
+        min-width: 0;
+    }
+
+    .home-content p {
+        font-size: 1rem;
+    }
+}
+
+/* 
+   DESKTOP 768px+
+   Content LEFT | Image RIGHT
+    */
+@media screen and (min-width: 768px) {
+    .home.active-content {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-areas: "content image";
+        align-items: center;
+        gap: 3.5rem;
+        width: 100%;
+        max-width: 100%;
+        margin: 3rem auto;
+    }
+
+    .home-content {
+        grid-area: content;
+        text-align: left;
+    }
+
+    .image-container {
+        grid-area: image;
+        width: 270px;
+        height: 270px;
+    }
+
+    .home-content h2 {
+        font-size: 3rem;
+    }
+
+    .home-content h3 {
+        font-size: 2rem;
+        justify-content: flex-start;
+    }
+
+    .home-content p {
+        font-size: 1.15rem;
+    }
+
+    .bottom {
+        gap: 24px;
+        justify-content: flex-start;
+        
+    }
+
+    .bottom .btn {
+        width: 12rem;
+        padding: 0.8rem 1.5rem;
+        font-size: 1.3rem;
+        font-weight: 500;
+        border-radius: 50px;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .social-icons {
+        font-size: 2.2rem;
+        gap: 18px;
+    }
+}
+
+/* =============================
+   LARGE DESKTOP 1024px+
+   ============================= */
+@media screen and (min-width: 1024px) {
+    .home.active-content {
+        gap: 5rem;
+        margin: 4rem auto;
+    }
+
+    .image-container {
+        width: 380px;
+        height: 380px;
+    }
+
+    .home-content h2 {
+        font-size: 4.5rem;
+    }
+
+    .home-content h3 {
+        font-size: 2.5rem;
+    }
+
+    .home-content p {
+        font-size: 1.3rem;
+    }
+}
+
+/* =============================
+   XL DESKTOP 1250px+
+   ============================= */
+@media screen and (min-width: 1250px) {
+    .image-container {
+        width: 420px;
+        height: 420px;
+    }
+
+    .home-content h2 {
+        font-size: 5rem;
+    }
+}
+
+/* =============================
+   CV DOWNLOAD BUTTON (anchor)
+   ============================= */
+.cv-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+.cv-btn i {
+    font-size: 0.95em;
+}
+
+@media (pointer: coarse) and (min-width: 768px) {
+    .home.active-content {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 2rem;
+        width: 100%;
+        max-width: 700px;
+        margin: 2rem auto;
+    }
+
+    .home-content {
+        text-align: center;
+    }
+
+    .home-content h2 {
+        font-size: 2.5rem;
+    }
+
+    .home-content h3 {
+        font-size: 1.8rem;
+        justify-content: center;
+    }
+
+    .home-content p {
+        font-size: 1.1rem;
+    }
+
+    .image-container {
+        width: 150px;
+        height: 150px;
+    }
+
+    .bottom {
+        justify-content: center;
+    }
+}

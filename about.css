@@ -1,0 +1,324 @@
+/* =============================
+   ABOUT SECTION
+   ============================= */
+
+/* Shared section heading style */
+.section-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+}
+
+.section-title span {
+    color: var(--green-color);
+}
+
+.section-sub {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 2rem;
+}
+
+/* About wrapper — stacked on mobile */
+.about-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1.5rem 0;
+}
+
+/* Sidebar */
+.about-sidebar {
+    width: 100%;
+}
+
+.about-intro {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
+/* Tabs */
+.about-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1rem;
+}
+
+.about-tab {
+    padding: 0.5rem 1.2rem;
+    border: 2px solid var(--secondary-color);
+    border-radius: 50px;
+    background: transparent;
+    color: var(--white-color);
+    font-size: 0.9rem;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.about-tab:hover {
+    border-color: var(--green-color);
+    color: var(--green-color);
+}
+
+.about-tab.active {
+    background: var(--green-color);
+    border-color: var(--green-color);
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Content Panel */
+.about-content-area {
+    width: 100%;
+    position: relative;
+}
+
+.about-panel {
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+
+.about-panel.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.panel-heading {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.panel-heading span {
+    color: var(--green-color);
+}
+
+/* ---- Timeline ---- */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--secondary-color);
+}
+
+.timeline-item {
+    position: relative;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -1.5rem;
+    top: 1rem;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--green-color);
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 0 0 2px var(--green-color);
+}
+
+.timeline-card {
+    background: var(--secondary-color);
+    border: 1px solid rgba(124, 240, 61, 0.15);
+    border-radius: 12px;
+    padding: 1.2rem 1.4rem;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.timeline-card:hover {
+    border-color: var(--green-color);
+    transform: translateX(4px);
+}
+
+.timeline-year {
+    display: inline-block;
+    background: rgba(124, 240, 61, 0.15);
+    color: var(--green-color);
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.2rem 0.8rem;
+    border-radius: 50px;
+    margin-bottom: 0.6rem;
+}
+
+.timeline-card h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.timeline-company {
+    font-size: 0.9rem;
+    color: var(--green-color);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.timeline-card p:last-child {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.6;
+}
+
+/* ---- Certifications Grid ---- */
+.cert-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.cert-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--secondary-color);
+    border: 1px solid rgba(124, 240, 61, 0.15);
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.cert-card:hover {
+    border-color: var(--green-color);
+    transform: translateY(-3px);
+}
+
+.cert-icon {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    border-radius: 10px;
+    background: rgba(124, 240, 61, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--green-color);
+}
+
+.cert-info h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+}
+
+.cert-info p {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 0.3rem;
+}
+
+.cert-year {
+    display: inline-block;
+    font-size: 0.75rem;
+    background: rgba(124, 240, 61, 0.15);
+    color: var(--green-color);
+    padding: 0.1rem 0.6rem;
+    border-radius: 50px;
+}
+
+/* ==============================
+   DESKTOP 768px+
+   ============================== */
+@media screen and (min-width: 768px) {
+    .about-wrapper {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 3rem;
+        padding: 2rem 0;
+    }
+
+    .about-sidebar {
+        width: 320px;
+        min-width: 280px;
+        position: sticky;
+        top: 1rem;
+    }
+
+    .about-content-area {
+        flex: 1;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+    }
+
+    .cert-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .about-sidebar {
+        width: 360px;
+    }
+
+    .section-title {
+        font-size: 3rem;
+    }
+
+    .panel-heading {
+        font-size: 2rem;
+    }
+
+    .about-intro {
+        font-size: 1.05rem;
+    }
+
+    .about-tab {
+        font-size: 1rem;
+        padding: 0.6rem 1.4rem;
+    }
+}
+
+@media (pointer: coarse) and (min-width: 768px) {
+    .about-wrapper {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 1.5rem 0;
+    }
+
+    .about-sidebar {
+        width: 100%;
+        min-width: 0;
+        position: static;
+    }
+
+    .about-content-area {
+        width: 100%;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+    }
+
+    .panel-heading {
+        font-size: 1.6rem;
+    }
+
+    .cert-grid {
+        grid-template-columns: 1fr;
+    }
+}
